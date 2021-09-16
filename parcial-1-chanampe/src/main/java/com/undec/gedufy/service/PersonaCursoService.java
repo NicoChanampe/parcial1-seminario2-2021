@@ -87,6 +87,8 @@ public class PersonaCursoService {
                 personaCursoRepository.save(personaCurso);
                 response.setData(personaCurso);
             }
+
+
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             e.printStackTrace();

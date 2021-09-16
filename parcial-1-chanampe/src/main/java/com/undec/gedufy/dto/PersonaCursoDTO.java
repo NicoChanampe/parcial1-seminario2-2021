@@ -33,8 +33,6 @@ public class PersonaCursoDTO {
         this.observacion = observacion;
     }
 
-//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-//    @JsonIdentityReference(alwaysAsId = true)
     public PersonaDTO getPersonaDTO() {
         return personaDTO;
     }
@@ -43,8 +41,6 @@ public class PersonaCursoDTO {
         this.personaDTO = personaDTO;
     }
 
-//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-//    @JsonIdentityReference(alwaysAsId = true)
     public CursoDTO getCursoDTO() {
         return cursoDTO;
     }
