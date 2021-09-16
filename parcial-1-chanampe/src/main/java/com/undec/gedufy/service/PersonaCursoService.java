@@ -35,6 +35,8 @@ public class PersonaCursoService {
     public Response findAll() {
         Response response = new Response();
         try {
+            List<PersonaCursoDTO> personaCursoDTOList = new PersonaCursoDTO().getPersonaCursoDTOList(personaCursoRepository.findAll());
+            response.setData(personaCursoDTOList);
             // TODO: obtener la lista completa de PersonaCurso
 
             // TODO: castear la lista a PersonaCursoDTO
