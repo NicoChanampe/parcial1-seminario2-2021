@@ -1,6 +1,8 @@
 package com.undec.gedufy.service;
 
+import com.undec.gedufy.dto.CursoDTO;
 import com.undec.gedufy.dto.PersonaCursoDTO;
+import com.undec.gedufy.dto.PersonaDTO;
 import com.undec.gedufy.dto.Response;
 import com.undec.gedufy.model.Curso;
 import com.undec.gedufy.model.Persona;
@@ -37,11 +39,6 @@ public class PersonaCursoService {
         try {
             List<PersonaCursoDTO> personaCursoDTOList = new PersonaCursoDTO().getPersonaCursoDTOList(personaCursoRepository.findAll());
             response.setData(personaCursoDTOList);
-            // TODO: obtener la lista completa de PersonaCurso
-
-            // TODO: castear la lista a PersonaCursoDTO
-
-            // TODO: retornar lista PersonaCursoDTO en el response
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             e.printStackTrace();
@@ -80,20 +77,16 @@ public class PersonaCursoService {
         return response;
     }
 
-    public Response save(Object input) {
+    public Response save(PersonaCursoDTO input) {
         Response response = new Response();
         try {
-            // TODO: verificar que exista el curso (por id). Si no existe devolver status/message indicandolo en el response
-
-            // TODO: verificar que exista la persona (por email). Si no existe devolver status/message indicandolo en el response
-
-            // TODO: castear de PersonaCursoDTO a PersonaCurso
-
-            // TODO: save
-
-            // TODO: en el response.data devolver el objeto guardado
-            
-
+            Curso cursoBuscado = cursoRepository.findOneById(input.getCursoDTO().getId());
+            Persona personaBuscada = personaRepository.findOneByEmail(input.getPersonaDTO().getEmail());
+            if(cursoBuscado != null && personaBuscada != null){
+                PersonaCurso personaCurso = new PersonaCursoDTO().getPersonaCurso(input,cursoBuscado,personaBuscada);
+                personaCursoRepository.save(personaCurso);
+                response.setData(personaCurso);
+            }
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             e.printStackTrace();

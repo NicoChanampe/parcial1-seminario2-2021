@@ -1,5 +1,8 @@
 package com.undec.gedufy.dto;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.undec.gedufy.model.Curso;
 import com.undec.gedufy.model.Persona;
 import com.undec.gedufy.model.PersonaCurso;
@@ -30,6 +33,8 @@ public class PersonaCursoDTO {
         this.observacion = observacion;
     }
 
+//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//    @JsonIdentityReference(alwaysAsId = true)
     public PersonaDTO getPersonaDTO() {
         return personaDTO;
     }
@@ -38,6 +43,8 @@ public class PersonaCursoDTO {
         this.personaDTO = personaDTO;
     }
 
+//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//    @JsonIdentityReference(alwaysAsId = true)
     public CursoDTO getCursoDTO() {
         return cursoDTO;
     }
