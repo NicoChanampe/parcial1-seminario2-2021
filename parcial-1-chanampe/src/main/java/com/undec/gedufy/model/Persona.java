@@ -175,7 +175,7 @@ public class Persona {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @ManyToOne
-    @JoinColumn(name = "tipo_persona_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "tipopersonaid", referencedColumnName = "id", nullable = false)
     public TipoPersona getTipoPersona() {
         return tipoPersona;
     }

@@ -119,7 +119,7 @@ public class PersonaCurso {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @ManyToOne
-    @JoinColumn(name = "persona_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "personaid", referencedColumnName = "id", nullable = false)
     public Persona getPersona() {
         return persona;
     }
@@ -131,7 +131,7 @@ public class PersonaCurso {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @ManyToOne
-    @JoinColumn(name = "curso_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "cursoid", referencedColumnName = "id", nullable = false)
     public Curso getCurso() {
         return curso;
     }
